@@ -14,7 +14,7 @@ ENV TZ=$TZ
 RUN apt-get -y update && \
     DEBIAN_FRONTEND=noninteractive \
       apt-get -y install locales tzdata iproute2 net-tools telnet \
-                         traceroute iputils-ping lsof psmisc && \
+                         traceroute iputils-ping lsof psmisc curl && \
     apt-get clean
 
 RUN locale-gen $LANG && \
