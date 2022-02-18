@@ -1,5 +1,7 @@
 # Ubuntu Base Image
 
+Ubuntu base image for your awesome images.
+
 ## Ubuntu License
 
 See https://ubuntu.com/legal/intellectual-property-policy
@@ -9,6 +11,16 @@ See https://ubuntu.com/legal/intellectual-property-policy
 It's just free. (Public Domain)
 
 See https://github.com/yidigun/ubuntu-base
+
+## Supported tags
+
+* ```20.04```, ```focal-20220113```, ```focal```, ```latest```
+* ```21.10```, ```impish-20220128```, ```impish```, ```rolling```
+* ```22.04```, ```jammy-20220130```, ```jammy```, ```devel```
+
+## Changelog
+
+* 2022-02-18 - Change default locale to en_US.UTF-8, timezone to UTC
 
 ## Use Image
 
@@ -21,4 +33,19 @@ docker run --rm -it yidigun/ubuntu-base:20.04
 
 ```dockerfile
 FROM docker.io/yidigun/ubuntu-base:20.04
+```
+
+To change locale or timezone use following codes.
+
+```dockerfile
+ARG LANG=en_US.UTF-8
+ARG TZ=UTC
+
+ENV LANG=$LANG
+ENV TZ=$TZ
+
+RUN locale-gen $LANG && \
+    update-locale LANG=$LANG && \
+    [ -n "$TZ" -a -f /usr/share/zoneinfo/$TZ ] && \
+      ln -sf /usr/share/zoneinfo/$TZ /etc/localtime
 ```
