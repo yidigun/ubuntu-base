@@ -4,3 +4,6 @@ Dockerfile
 Makefile
 README.md
 *.iml
+supported-tags.txt
+update-push.sh
+
