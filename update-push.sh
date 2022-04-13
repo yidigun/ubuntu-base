@@ -1,7 +1,7 @@
 #!/bin/sh
 
 basedir=$HOME/IdeaProjects/yidigun.com
-builder=oldbuilder
+builder=crossbuilder
 
 TAG=$1; shift
 EXTRA_TAGS="$*"
