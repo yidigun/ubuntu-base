@@ -1,4 +1,4 @@
-ARG IMG_TAG
+ARG IMG_TAG=latest
 FROM docker.io/library/ubuntu:${IMG_TAG}
 
 ARG IMG_NAME
